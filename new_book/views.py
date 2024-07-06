@@ -18,13 +18,21 @@ def register(request):
 def books(request):
     if request.method == 'POST':
         search = request.POST['search']
-        books = Book.objects.filter(tittle__icontains=search)
+        books = Book.objects.filter(tittle__icontains=search) | Book.objects.filter(author__first_name__icontains=search)
         if books:
             return render(request, 'books.html', {'books': books, "value": search, 'message': "Successfully"})
         else:
             return render(request, 'books.html', {'message': "Not fount"})
     books = Book.objects.all()
     return render(request, 'books.html', {'books': books})
+
+
+def book_detail(request, slug):
+    book = Book.objects.get(slug=slug)
+    if book:
+        return render(request, 'book_detail.html', {'book': book, "message": "Successfully"})
+    else:
+        return render(request, 'book_detail.html', {"message": "Not Fount"})
 
 
 def author(request):

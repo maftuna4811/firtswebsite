@@ -12,9 +12,13 @@ class Author(models.Model):
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
 
+    def __str__(self):
+        return self.get_full_name()
+
 
 class Book(models.Model):
     tittle = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, null=True, unique=True)
     info = models.TextField()
     image = models.ImageField(upload_to=SaveMedia.save_book_image_path, null=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)

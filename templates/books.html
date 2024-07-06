@@ -11,14 +11,9 @@
                 <div class="card h-100">
                   <img src="{{ book.image.url }}"  alt="..." width="200px" height="200px">
                   <div class="card-body">
-                    <h5 class="card-title">{{ book.tittle }}</h5>
-                    <p class="card-text">{{ book.info }}</p>
-                  </div>
-                  <div class="card-footer">
-                    <small class="text-body-secondary">{{ book.author.get_full_name }}</small>
-                  </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">{{ book.created_at }}</small>
+                      <a href="{% url 'book-detail'  book.slug %}">
+                          <h5 class="card-title">{{ book.tittle }}</h5>
+                      </a>
                   </div>
                 </div>
               </div>
