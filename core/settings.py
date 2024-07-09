@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     #apps
     'new_book',
     'import_export',
+    'users'
 ]
 
 MIDDLEWARE = [

@@ -13,7 +13,7 @@ class AuthorAdmin(ImportExportModelAdmin):
 
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'slug', 'tittle', 'info', 'count', 'price', 'created_at')
+    list_display = ('id', 'tittle',  'slug', 'info', 'count', 'price', 'created_at')
     list_display_links = ('tittle',)
     search_fields = ('id', "tittle", )
     ordering = ("id", "tittle")
