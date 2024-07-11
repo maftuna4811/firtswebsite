@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     #apps
     'new_book',
     'import_export',
-    'users'
+    'users',
+    'blog',
 ]
 
 MIDDLEWARE = [
